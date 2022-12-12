@@ -57,6 +57,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".MyAddressActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+        </activity>
+        <activity
+            android:name=".OrderTrackingActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MyOrdersActivity"
             android:exported="true">
             <meta-data
@@ -64,11 +78,27 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".SellerProfileActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
             android:name=".ShippingAddressActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
+        </activity>
+        <activity
+            android:name=".PaymentMethodsActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""/>
+
         </activity>
         <activity
             android:name=".PaymentActivity"
