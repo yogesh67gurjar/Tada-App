@@ -30,6 +30,7 @@ import com.example.tadaapp.FollowersActivity;
 import com.example.tadaapp.Modal.ImageModel;
 import com.example.tadaapp.NotificationActivity;
 import com.example.tadaapp.R;
+import com.example.tadaapp.SeeAllActivity;
 import com.example.tadaapp.TermsAndConditionsActivity;
 import com.example.tadaapp.databinding.FragmentHomeBinding;
 import com.google.android.material.tabs.TabLayout;
@@ -111,8 +112,16 @@ public class HomeFragment extends Fragment {
             startActivity (i);
         });
 
-//        firstRecyclerVIew = binding.firstRecyclerVIew.findViewById (R.id.recyclerView);
-//        LayoutManager = new LinearLayoutManager (getActivity (), LinearLayoutManager.HORIZONTAL, true);
+        binding.btnSeeAll.setOnClickListener (View ->{
+            Intent i = new Intent(getActivity (), SeeAllActivity.class);
+            startActivity (i);
+        });
+
+        binding.btnSeeAll2.setOnClickListener (View ->{
+            Intent i = new Intent(getActivity (), SeeAllActivity.class);
+            startActivity (i);
+        });
+
         LayoutManager = new LinearLayoutManager(getActivity (), LinearLayoutManager.HORIZONTAL, false);
         binding.firstRecyclerVIew.setLayoutManager (LayoutManager);
 
