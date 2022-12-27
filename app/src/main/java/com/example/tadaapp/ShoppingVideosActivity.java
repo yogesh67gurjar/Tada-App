@@ -1,7 +1,9 @@
 package com.example.tadaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -10,6 +12,8 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -20,6 +24,9 @@ import android.widget.Toast;
 
 import com.example.tadaapp.databinding.ActivityShoppingVideosBinding;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class ShoppingVideosActivity extends AppCompatActivity {
 
     ActivityShoppingVideosBinding binding;
@@ -28,6 +35,9 @@ public class ShoppingVideosActivity extends AppCompatActivity {
 
     static Boolean soundonoff;
     static Boolean likeunlike = false;
+    private static int duration = 0;
+    private static Timer timer;
+
 
     static int currentVolume;
     static int maxVolume;
@@ -39,6 +49,8 @@ public class ShoppingVideosActivity extends AppCompatActivity {
         binding = ActivityShoppingVideosBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+        binding.recycler1.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, true));
 
         audioManager = (AudioManager) ShoppingVideosActivity.this.getSystemService(this.AUDIO_SERVICE);
 
@@ -53,6 +65,20 @@ public class ShoppingVideosActivity extends AppCompatActivity {
                 } else {
                     binding.follow.setText("Follow");
                 }
+            }
+        });
+
+        binding.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShoppingVideosActivity.this, SellerProfileActivity.class));
+            }
+        });
+
+        binding.img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShoppingVideosActivity.this, SellerProfileActivity.class));
             }
         });
 
@@ -78,20 +104,17 @@ public class ShoppingVideosActivity extends AppCompatActivity {
         });
 
 
-        binding.share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("text/plain");
-                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "my app name");
-                    String shareMsg = "\nLet me recommend you this application\n\n";
-                    shareMsg = shareMsg + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
-                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg);
-                    startActivity(Intent.createChooser(shareIntent, "choose any medium"));
-                } catch (Exception e) {
-                    Toast.makeText(ShoppingVideosActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-                }
+        binding.share.setOnClickListener(v -> {
+            try {
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, "my app name");
+                String shareMsg = "\nLet me recommend you this application\n\n";
+                shareMsg = shareMsg + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg);
+                startActivity(Intent.createChooser(shareIntent, "choose any medium"));
+            } catch (Exception e) {
+                Toast.makeText(ShoppingVideosActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -124,45 +147,37 @@ public class ShoppingVideosActivity extends AppCompatActivity {
                 }
             }
         });
-        new VideoPlayAsyncTask().execute();
+
+        binding.videoview.start();
+        binding.videoview.setOnPreparedListener(mp -> {
+            duration = binding.videoview.getDuration();
+            timerCounter();
+        });
     }
 
-    private class VideoPlayAsyncTask extends AsyncTask<Void, Integer, Void> {
-        int duration = 0;
-        int current = 0;
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            binding.videoview.start();
-            binding.videoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    duration = binding.videoview.getDuration();
-                }
-            });
-
-            do {
-                current = binding.videoview.getCurrentPosition();
-
-                try {
-                    publishProgress((int) (current * 100 / duration));
-                    if (binding.progressBar.getProgress() >= 100) {
-                        break;
+    private void timerCounter() {
+        timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateUI();
                     }
-                } catch (Exception e) {
-                }
-            } while (binding.progressBar.getProgress() <= 100);
+                });
+            }
+        };
+        timer.schedule(task, 0, 1);
+    }
 
-            return null;
+    private void updateUI() {
+        if (binding.progressBar.getProgress() >= 100) {
+            timer.cancel();
         }
-
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-            binding.progressBar.setProgress(values[0]);
-
-        }
-
+        int current = binding.videoview.getCurrentPosition();
+        int progress = current * 100 / duration;
+        binding.progressBar.setProgress(progress);
     }
 
     @Override

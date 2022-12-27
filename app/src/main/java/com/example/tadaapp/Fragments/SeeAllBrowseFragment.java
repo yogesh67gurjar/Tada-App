@@ -99,8 +99,6 @@ public class SeeAllBrowseFragment extends Fragment {
             }
         });
 
-
-
         return view;
     }
 }

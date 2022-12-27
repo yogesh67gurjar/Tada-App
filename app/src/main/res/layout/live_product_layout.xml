@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="130dp"
-    android:background="@drawable/white_round_corner_nine_layout"
-    >
+    android:background="@drawable/white_round_corner_nine_layout">
 
             <ImageView
                 android:id="@+id/img_product"

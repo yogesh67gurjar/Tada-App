@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ShoppingVideosActivity">
 
-
     <VideoView
         android:id="@+id/videoview"
         android:layout_width="match_parent"
@@ -20,12 +19,12 @@
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
         style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:progressTint="@color/appPink"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:progressTint="@color/appPink"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -35,8 +34,8 @@
         android:layout_height="30dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="40dp"
-        android:src="@drawable/sound_high"
         android:paddingStart="4dp"
+        android:src="@drawable/sound_high"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/constraintLayout" />
 
@@ -126,19 +125,20 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/bg_react_view"
         android:orientation="vertical"
         android:paddingHorizontal="4dp"
         android:paddingVertical="20dp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayoutbtm"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/like"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="5dp"
@@ -149,11 +149,11 @@
             android:id="@+id/likeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="1dp"
             android:background="#00000000"
             android:text="124"
-            android:layout_gravity="center"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -171,11 +171,11 @@
             android:id="@+id/commentCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="1dp"
             android:background="#00000000"
             android:text="120"
-            android:layout_gravity="center"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -194,7 +194,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayoutbtm"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="140dp"
         android:layout_marginBottom="60dp"
         app:layout_constraintBottom_toTopOf="@id/editText"
         app:layout_constraintStart_toStartOf="parent">
@@ -207,10 +207,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/live_product_layout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <EditText
         android:id="@+id/editText"
@@ -228,34 +227,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <TextView
-        android:id="@+id/cart_badge"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="65dp"
-        android:background="@drawable/bg_badge_notification"
-        android:gravity="center"
-        android:padding="3dp"
-        android:text="0"
-        android:textColor="@android:color/white"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bag"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="30dp"
+    <ru.nikartm.support.ImageBadgeView
+        android:id="@+id/ibv_icon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="3dp"
         android:background="@drawable/oval_gradient_bg"
-        android:drawableStart="@drawable/ic_bag"
-        android:paddingStart="14dp"
-        app:civ_border_color="@color/appPink"
+        android:padding="12dp"
+        android:src="@drawable/ic_bag"
+        app:ibv_badgeColor="@color/white"
+        app:ibv_badgeLimitValue="false"
+        app:ibv_badgeTextColor="@color/appPink"
+        app:ibv_badgeTextSize="8sp"
+        app:ibv_badgeTextStyle="bold"
+        app:ibv_badgeValue="10"
+        app:ibv_fixedBadgeRadius="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/editText"
         app:layout_constraintTop_toTopOf="@+id/editText" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
