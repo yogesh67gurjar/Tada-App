@@ -2,12 +2,14 @@ package com.example.tadaapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
 import android.text.TextPaint;
 import android.util.Log;
+import android.view.View;
 
 import com.example.tadaapp.Adapters.SeeAllVpAdapter;
 import com.example.tadaapp.databinding.ActivitySeeAllBinding;
@@ -35,6 +37,14 @@ public class SeeAllActivity extends AppCompatActivity {
                         Color.parseColor("#FF5A3A"),
                 }, null, Shader.TileMode.CLAMP);
         binding.tadaLogo.getPaint().setShader(textShader);
+
+        binding.backBtn.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent (SeeAllActivity.this, DashboardActivity.class);
+                startActivity (i);
+            }
+        });
 
         vpAdapter=new SeeAllVpAdapter(this);
 

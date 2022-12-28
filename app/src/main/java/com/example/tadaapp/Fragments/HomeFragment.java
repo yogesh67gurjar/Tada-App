@@ -122,6 +122,16 @@ public class HomeFragment extends Fragment {
             startActivity (i);
         });
 
+        binding.txtSeeAll.setOnClickListener (View ->{
+            Intent i = new Intent(getActivity (), SeeAllActivity.class);
+            startActivity (i);
+        });
+
+        binding.txtSeeAll2.setOnClickListener (View ->{
+            Intent i = new Intent(getActivity (), SeeAllActivity.class);
+            startActivity (i);
+        });
+
         LayoutManager = new LinearLayoutManager(getActivity (), LinearLayoutManager.HORIZONTAL, false);
         binding.firstRecyclerVIew.setLayoutManager (LayoutManager);
 

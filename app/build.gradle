@@ -29,6 +29,7 @@ android {
     buildFeatures
             {
                 viewBinding true
+                dataBinding true
             }
 }
 
@@ -55,7 +56,4 @@ dependencies {
 
     // imagebadgeview
     implementation 'io.github.nikartm:image-support:2.0.0'
-
-    // like anim button
-    // implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 }
