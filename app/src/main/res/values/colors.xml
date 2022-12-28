@@ -10,4 +10,8 @@
     <color name="appPink">#FE0385</color>
     <color name="yellow">#FFE609</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="gradStart">#B9FE0187</color>
+    <color name="gradEnd">#ABFF5A3A</color>
+
+
 </resources>

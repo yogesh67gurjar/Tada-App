@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.tadaapp.Adapters.Category_Adapter;
 import com.example.tadaapp.Adapters.DbImageSliderAdapter;
@@ -26,11 +27,13 @@ import com.example.tadaapp.Adapters.Live_shopping_adapter;
 import com.example.tadaapp.Adapters.New_Item_Adapter;
 import com.example.tadaapp.Adapters.Notification_Adapter;
 import com.example.tadaapp.Adapters.browse_home_adapter;
+import com.example.tadaapp.BuildConfig;
 import com.example.tadaapp.FollowersActivity;
 import com.example.tadaapp.Modal.ImageModel;
 import com.example.tadaapp.NotificationActivity;
 import com.example.tadaapp.R;
 import com.example.tadaapp.SeeAllActivity;
+import com.example.tadaapp.ShoppingVideosActivity;
 import com.example.tadaapp.TermsAndConditionsActivity;
 import com.example.tadaapp.databinding.FragmentHomeBinding;
 import com.google.android.material.tabs.TabLayout;
@@ -56,26 +59,23 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         binding = FragmentHomeBinding.inflate(inflater,container,false);
-//        View view = inflater.inflate (R.layout.fragment_profile, container, false);
 
-        TextPaint paint = binding.basTV.getPaint();
-        float width = paint.measureText("Become a seller");
-
-        Shader textShader = new LinearGradient(0, 0, width, binding.basTV.getTextSize(),
-                new int[]{
-                        Color.parseColor("#FE0187"),
-                        Color.parseColor("#FF5A3A"),
-                }, null, Shader.TileMode.CLAMP);
-        binding.basTV.getPaint().setShader(textShader);
-
-        paint = binding.tadaTV.getPaint();
-        width = paint.measureText("Tada");
-        textShader = new LinearGradient(0, 0, width, binding.tadaTV.getTextSize(),
-                new int[]{
-                        Color.parseColor("#FE0187"),
-                        Color.parseColor("#FF5A3A"),
-                }, null, Shader.TileMode.CLAMP);
-        binding.tadaTV.getPaint().setShader(textShader);
+        binding.basTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "my app name");
+                    String shareMsg = "\nLet me recommend you this application\n\n";
+                    shareMsg = shareMsg + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg);
+                    startActivity(Intent.createChooser(shareIntent, "choose any medium"));
+                } catch (Exception e) {
+                    Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         List<ImageModel> sList = new ArrayList<>();

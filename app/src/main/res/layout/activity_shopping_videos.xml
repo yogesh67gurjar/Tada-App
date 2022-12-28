@@ -136,7 +136,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -149,6 +149,7 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toStartOf="parent">
 
+
         <ImageView
             android:id="@+id/like"
             android:layout_width="wrap_content"
@@ -156,6 +157,9 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             android:background="#00000000"
             android:src="@drawable/heart_inactive" />
 
@@ -168,6 +172,9 @@
             android:layout_marginTop="1dp"
             android:background="#00000000"
             android:text="124"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/like"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -178,6 +185,9 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/likeCount"
             android:background="#00000000"
             android:src="@drawable/ic_comment" />
 
@@ -190,6 +200,9 @@
             android:layout_marginTop="1dp"
             android:background="#00000000"
             android:text="120"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/comment"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -201,8 +214,11 @@
             android:layout_marginHorizontal="5dp"
             android:layout_marginTop="18dp"
             android:background="#00000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/commentCount"
             android:src="@drawable/ic_share" />
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

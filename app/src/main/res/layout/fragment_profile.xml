@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/profile_fragment"
-    tools:context=".Fragments.ProfileFragment"
     android:background="@color/black"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".Fragments.ProfileFragment">
 
     <TextView
         android:id="@+id/textView5"
@@ -25,28 +25,26 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_marginTop="71dp"
         android:background="@drawable/top_corner_round_white"
-        android:layout_marginTop="71dp">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="@drawable/profile_gradient_top_round">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/dp_img"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:src="@drawable/girl_img"
-                app:civ_border_width="2dp"
-                app:civ_border_color="@color/white"
                 android:layout_marginStart="14dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/girl_img"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -76,25 +74,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                android:text="followers"
                 android:layout_gravity="center"
-                app:layout_constraintStart_toStartOf="@id/follower_count_tv"
+                android:text="followers"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@+id/follower_count_tv"
-                app:layout_constraintTop_toBottomOf="@id/follower_count_tv"
-                />
+                app:layout_constraintStart_toStartOf="@id/follower_count_tv"
+                app:layout_constraintTop_toBottomOf="@id/follower_count_tv" />
 
             <ImageButton
                 android:id="@+id/ic_edit"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_marginEnd="15dp"
                 android:background="@drawable/black_circle"
                 android:src="@drawable/edit_btn"
-                android:layout_marginEnd="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -111,122 +108,112 @@
                     android:id="@+id/my_order_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="My Orders"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/three"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="My Orders"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="My Address"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/two"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="My Address"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/wishlist_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Wishlist"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/three"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Wishlist"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/following_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Following"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/four"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Following"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Payment Methods"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/five"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Payment Methods"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/terms_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Terms and Conditions"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/six"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Terms and Conditions"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/privacy_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Privacy Policy"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/seven"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Privacy Policy"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/setting_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Settings"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/eight"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Settings"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/logout_btn"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
-                    android:text="Logout"
                     android:layout_marginStart="20dp"
-                    android:gravity="center_vertical"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
                     android:drawableStart="@drawable/nine"
                     android:drawablePadding="8dp"
-                    />
+                    android:gravity="center_vertical"
+                    android:text="Logout"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
 
             </LinearLayout>
 
         </ScrollView>
-
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

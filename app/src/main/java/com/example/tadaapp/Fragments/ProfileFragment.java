@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.tadaapp.EditProfileActivity;
 import com.example.tadaapp.FollowersActivity;
 import com.example.tadaapp.LogInActivity;
 import com.example.tadaapp.MyOrdersActivity;
@@ -33,6 +35,14 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
                 Intent i = new Intent(getActivity (), MyOrdersActivity.class);
                 startActivity (i);
+            }
+        });
+
+        ImageButton ic_edit=(ImageButton) view.findViewById(R.id.ic_edit);
+        ic_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EditProfileActivity.class));
             }
         });
 

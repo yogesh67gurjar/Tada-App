@@ -72,6 +72,8 @@
             android:layout_marginTop="6dp"
             android:background="@drawable/button_gradient_curve_corner_bg"
             android:text="Follow"
+            android:textAllCaps="false"
+            android:id="@+id/followbtn"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView6"
