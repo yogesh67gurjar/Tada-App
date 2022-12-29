@@ -56,4 +56,8 @@ dependencies {
 
     // imagebadgeview
     implementation 'io.github.nikartm:image-support:2.0.0'
+
+    // rating bar
+    implementation 'com.github.ome450901:SimpleRatingBar:LATEST_VERSION'
+
 }

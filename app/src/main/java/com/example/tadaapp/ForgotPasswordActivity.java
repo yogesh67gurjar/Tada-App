@@ -4,17 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.tadaapp.ApiServices.ApiService;
 import com.example.tadaapp.Fragments.AddNewAddressFragment;
 import com.example.tadaapp.Fragments.SingleProductPageFragment;
+import com.example.tadaapp.Modal.UserForgotPassword;
+import com.example.tadaapp.Retrofits.RetrofitServices;
 import com.example.tadaapp.databinding.ActivityForgotPasswordBinding;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     ActivityForgotPasswordBinding binding;
     EditText email_ET;
+
+    ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +32,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         binding=ActivityForgotPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+        apiService= RetrofitServices.getRetrofit().create(ApiService.class);
 
         email_ET = findViewById (R.id.email_ET);
 
@@ -32,9 +44,31 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 email_ET.setError ("Please Enter Email");
                 email_ET.requestFocus ();
             } else {
-                Toast.makeText (this, "Password Send On Email", Toast.LENGTH_SHORT).show ();
-                Intent i = new Intent (getApplicationContext (), LogInActivity.class);
-                startActivity (i);
+                userforgotFunc(Email);
+            }
+        });
+    }
+
+    private void userforgotFunc(String email) {
+        Call<UserForgotPassword> call=apiService.forgotUser(email);
+        call.enqueue(new Callback<UserForgotPassword>() {
+            @Override
+            public void onResponse(Call<UserForgotPassword> call, Response<UserForgotPassword> response) {
+                if(response.body().getStatus_code()==200)
+                {
+                    Toast.makeText (getApplicationContext(), "Password Send On Email", Toast.LENGTH_SHORT).show ();
+                    Intent i = new Intent (getApplicationContext (), LogInActivity.class);
+                    startActivity (i);
+                    Log.i("forgot password success",response.body().getMessage());
+                    finish();
+                }
+                else {
+                    Toast.makeText(ForgotPasswordActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onFailure(Call<UserForgotPassword> call, Throwable t) {
+                Toast.makeText(ForgotPasswordActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
