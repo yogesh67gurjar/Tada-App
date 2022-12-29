@@ -40,16 +40,16 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         binding.resetpwBtn.setOnClickListener (view -> {
             String Email = email_ET.getText ().toString ();
 
-            if (Email.isEmpty ()) {
+            if (Email.isEmpty() && Email.contains("@") && Email.contains(".") ) {
                 email_ET.setError ("Please Enter Email");
                 email_ET.requestFocus ();
             } else {
-                userforgotFunc(Email);
+                userForgotFunc(Email);
             }
         });
     }
 
-    private void userforgotFunc(String email) {
+    private void userForgotFunc(String email) {
         Call<UserForgotPassword> call=apiService.forgotUser(email);
         call.enqueue(new Callback<UserForgotPassword>() {
             @Override
