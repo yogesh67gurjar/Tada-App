@@ -1,5 +1,6 @@
 package com.example.tadaapp.ApiServices;
 
+import com.example.tadaapp.Modal.UserForgotPassword;
 import com.example.tadaapp.Modal.UserLogin;
 import com.example.tadaapp.Modal.UserSignUp;
 
@@ -20,4 +21,8 @@ public interface ApiService {
             , @Field("user_email") String user_email
             , @Field("user_password") String user_password
             , @Field("role") String role);
+
+    @FormUrlEncoded
+    @POST("change-password")
+    Call<UserForgotPassword> forgotUser(@Field("email")String email);
 }
