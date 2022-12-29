@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,14 +17,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
 
-        <TextView
+        <ImageView
             android:id="@+id/tada_TV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="11dp"
-            android:text="Tada"
-            android:textSize="28sp"
-            android:textStyle="bold"
+            android:src="@drawable/tada"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,13 +37,15 @@
             app:layout_constraintStart_toEndOf="@+id/tada_TV"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
+            <ImageView
                 android:id="@+id/bas_TV"
+                android:layout_weight="1"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="Become a seller"
-                android:textSize="14sp" />
+                android:src="@drawable/bas" />
         </LinearLayout>
 
         <ImageButton
@@ -307,8 +307,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="232dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginBottom="15dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

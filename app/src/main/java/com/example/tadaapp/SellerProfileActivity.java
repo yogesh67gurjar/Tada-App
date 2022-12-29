@@ -16,12 +16,30 @@ public class SellerProfileActivity extends AppCompatActivity {
     private String[] titles=new String[]{"Video","Store"};
     SellerProfileVpAdapter adapter;
 
+    boolean isFollowing=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivitySellerprofileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
+
+        binding.followbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isFollowing)
+                {
+                    isFollowing=false;
+                    binding.followbtn.setText("Follow");
+                }
+                else
+                {
+                    isFollowing=true;
+                    binding.followbtn.setText("Following");
+                }
+            }
+        });
 
         binding.back.setOnClickListener(new View.OnClickListener() {
             @Override
