@@ -15,6 +15,8 @@ import com.example.tadaapp.Modal.UserForgotPassword;
 import com.example.tadaapp.Retrofits.RetrofitServices;
 import com.example.tadaapp.databinding.ActivityForgotPasswordBinding;
 
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +33,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityForgotPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+        Objects.requireNonNull (getSupportActionBar ()).hide();
 
         apiService= RetrofitServices.getRetrofit().create(ApiService.class);
 
@@ -40,7 +42,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         binding.resetpwBtn.setOnClickListener (view -> {
             String Email = email_ET.getText ().toString ();
 
-            if (Email.isEmpty() && Email.contains("@") && Email.contains(".") ) {
+            if (Email.isEmpty() || Email.contains("@") || Email.contains(".") ) {
                 email_ET.setError ("Please Enter Email");
                 email_ET.requestFocus ();
             } else {
@@ -54,6 +56,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         call.enqueue(new Callback<UserForgotPassword>() {
             @Override
             public void onResponse(Call<UserForgotPassword> call, Response<UserForgotPassword> response) {
+                assert response.body () != null;
                 if(response.body().getStatus_code()==200)
                 {
                     Toast.makeText (getApplicationContext(), "Password Send On Email", Toast.LENGTH_SHORT).show ();
