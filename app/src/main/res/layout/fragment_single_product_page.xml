@@ -3,41 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#C7000000"
+    android:layout_height="wrap_content"
+    style="@style/AppBottomSheetDialogTheme"
+    android:background="@drawable/top_round_corner_black_bg"
     tools:context=".Fragments.SingleProductPageFragment">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:id="@+id/cross"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:background="@drawable/circular_button_layout"
         android:drawableStart="@drawable/ic_baseline_close_24"
-        android:paddingStart="4dp"
+        android:paddingStart="2dp"
         android:paddingEnd="0dp"
         app:layout_constraintBottom_toTopOf="@id/cl2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/cl2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="71dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/top_round_corner_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -311,6 +304,7 @@
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="10dp"
                     android:text="Add To Cart"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="20dp"
                     app:layout_constraintBottom_toBottomOf="@+id/pricetv"
@@ -370,21 +364,24 @@
 
                 <RatingBar
                     android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
-                    android:numStars="5"
-                    app:layout_constraintStart_toStartOf="parent"
+                    android:rating="4"
+                    android:scaleX="1"
+                    android:scaleY="1"
+                    app:layout_constraintStart_toStartOf="@+id/rnrtv"
                     app:layout_constraintTop_toBottomOf="@id/rnrtv" />
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:background="#33000000"
+                    android:background="@drawable/rating_tv_bg"
                     android:paddingHorizontal="5dp"
                     android:text="4/5"
+
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@id/ratingBar"
@@ -402,8 +399,8 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                         android:id="@+id/img"
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
+                        android:layout_width="47dp"
+                        android:layout_height="47dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="15dp"
                         android:src="@drawable/girl_img"
@@ -426,27 +423,27 @@
 
                     <RatingBar
                         android:id="@+id/ratingBarinner"
+                        style="?android:attr/ratingBarStyleIndicator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="12dp"
                         android:numStars="5"
-                        app:layout_constraintStart_toEndOf="@id/img"
+                        android:rating="3.5"
+                        android:scaleX="0.9"
+                        android:scaleY="0.9"
+                        app:layout_constraintStart_toStartOf="@+id/nametv"
                         app:layout_constraintTop_toBottomOf="@id/nametv" />
 
                     <TextView
                         android:id="@+id/reviewtv"
                         android:layout_width="275dp"
                         android:layout_height="56dp"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="5dp"
                         android:gravity="fill"
                         android:maxLength="80"
                         android:maxLines="4"
                         android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard...  "
                         android:textColor="#CC000000"
                         android:textSize="15sp"
-                        app:layout_constraintStart_toEndOf="@id/img"
+                        app:layout_constraintStart_toStartOf="@+id/nametv"
                         app:layout_constraintTop_toBottomOf="@id/ratingBarinner" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -456,23 +453,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
-                    android:paddingVertical="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cl3"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/pink_border_layout">
+                    android:background="@drawable/pink_border_layout"
+                    android:paddingVertical="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl3">
 
-                    <TextView
+                    <ImageView
                         android:id="@+id/var_TV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:gravity="center"
                         android:layout_weight="1"
-                        />
+                        android:gravity="center"
+                        android:src="@drawable/var" />
                 </LinearLayout>
 
                 <View
@@ -528,29 +522,25 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ymltv"
+                    android:layout_marginTop="6dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginTop="6dp">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ymltv">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
                         android:layout_margin="3dp"
-                        tools:listitem="@layout/db_items_layout"
-                        />
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:listitem="@layout/db_items_layout" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+        </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

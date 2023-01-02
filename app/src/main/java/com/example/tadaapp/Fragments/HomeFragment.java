@@ -27,7 +27,7 @@ import com.example.tadaapp.Adapters.Live_shopping_adapter;
 import com.example.tadaapp.Adapters.New_Item_Adapter;
 import com.example.tadaapp.Adapters.Notification_Adapter;
 import com.example.tadaapp.Adapters.browse_home_adapter;
-import com.example.tadaapp.BuildConfig;
+
 import com.example.tadaapp.FollowersActivity;
 import com.example.tadaapp.Modal.ImageModel;
 import com.example.tadaapp.NotificationActivity;
@@ -36,10 +36,13 @@ import com.example.tadaapp.SeeAllActivity;
 import com.example.tadaapp.ShoppingVideosActivity;
 import com.example.tadaapp.TermsAndConditionsActivity;
 import com.example.tadaapp.databinding.FragmentHomeBinding;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.BuildConfig;
 
 public class HomeFragment extends Fragment {
 
@@ -68,7 +71,7 @@ public class HomeFragment extends Fragment {
                     shareIntent.setType("text/plain");
                     shareIntent.putExtra(Intent.EXTRA_SUBJECT, "my app name");
                     String shareMsg = "\nLet me recommend you this application\n\n";
-                    shareMsg = shareMsg + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
+                    shareMsg = shareMsg + "https://play.google.com/store/apps/details?id=" + BuildConfig.BUILD_TYPE + "\n\n";
                     shareIntent.putExtra(Intent.EXTRA_TEXT, shareMsg);
                     startActivity(Intent.createChooser(shareIntent, "choose any medium"));
                 } catch (Exception e) {
@@ -168,6 +171,15 @@ public class HomeFragment extends Fragment {
         binding.secondRecyclerVIew.setHasFixedSize (true);
         binding.thirdRecyclerVIew.setHasFixedSize (true);
         binding.fourRecyclerVIew.setHasFixedSize (true);
+
+
+        binding.tadaTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SingleProductPageFragment frag=new SingleProductPageFragment();
+                frag.show(getParentFragmentManager(),frag.getTag());
+            }
+        });
 
         return binding.getRoot();
     }

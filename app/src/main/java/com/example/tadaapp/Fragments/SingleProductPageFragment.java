@@ -1,14 +1,13 @@
 package com.example.tadaapp.Fragments;
 
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.Shader;
+import android.content.DialogInterface;
 import android.os.Bundle;
-
-import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+
+import androidx.annotation.NonNull;
 
 import com.example.tadaapp.Adapters.DbImageAdapter;
 import com.example.tadaapp.Modal.DbImageModal;
@@ -31,16 +30,6 @@ public class SingleProductPageFragment extends BottomSheetDialogFragment {
 
         binding=FragmentSingleProductPageBinding.inflate(inflater,container,false);
 
-        TextPaint paint = binding.varTV.getPaint();
-        float width = paint.measureText("View All Reviews");
-
-        Shader textShader = new LinearGradient(0, 0, width, binding.varTV.getTextSize(),
-                new int[]{
-                        Color.parseColor("#FE0187"),
-                        Color.parseColor("#FF5A3A"),
-                }, null, Shader.TileMode.CLAMP);
-        binding.varTV.getPaint().setShader(textShader);
-
         List<DbImageModal>listOfImages=new ArrayList<>();
 
         listOfImages.add(new DbImageModal(R.drawable.img_singlepro));
@@ -53,8 +42,17 @@ public class SingleProductPageFragment extends BottomSheetDialogFragment {
 
         binding.tablayout.setupWithViewPager(binding.viewpager);
 
-
-
+        binding.cross.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SingleProductPageFragment.this.dismiss();
+            }
+        });
         return binding.getRoot();
+    }
+
+    @Override
+    public void onCancel(@NonNull DialogInterface dialog) {
+        super.onCancel(dialog);
     }
 }
