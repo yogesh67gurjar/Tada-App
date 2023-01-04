@@ -1,122 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.AddNewAddressFragment"
     android:background="@drawable/top_round_corner_black_bg"
-    >
+    tools:context=".Fragments.AddNewAddressFragment">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_margin="30dp"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/circular_button_layout"
         android:drawableStart="@drawable/ic_baseline_arrow_back_24"
-        android:paddingStart="4dp"
+        android:paddingStart="1dp"
+        android:id="@+id/backBtn"
+        app:layout_constraintBottom_toTopOf="@id/scroll"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="Add New Address"
         android:textColor="@color/white"
-        android:textSize="24sp"
+        android:textSize="21sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/scroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="71dp"
         android:background="@drawable/top_round_corner_white"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_goneMarginTop="10dp"
-        >
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_goneMarginTop="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            >
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="25dp"
                 android:text="Save this address as"
                 android:textColor="@color/black"
-                android:layout_marginTop="25dp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="15dp"
-                android:textSize="14sp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/home_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv1"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_white_curve_corner_bg"
+                android:text="Home"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
                 android:textSize="15sp"
-                android:text="home"
-                android:textColor="@color/white"
                 android:textStyle="bold"
-                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toStartOf="@id/tv1"
-                android:background="@drawable/button_gradient_curve_corner_bg"
-                />
+                app:layout_constraintTop_toBottomOf="@id/tv1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/office_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv1"
-                android:textSize="15sp"
-                android:text="office"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toEndOf="@id/home_btn"
                 android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_white_curve_corner_bg"
-                />
+                android:text="Office"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/home_btn"
+                app:layout_constraintTop_toBottomOf="@id/tv1" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/other_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv1"
-                android:textSize="15sp"
-                android:text="other"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toEndOf="@id/office_btn"
                 android:layout_marginStart="15dp"
-                android:background="@drawable/button_white_curve_corner_bg" />
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_white_curve_corner_bg"
+                android:text="Other"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/office_btn"
+                app:layout_constraintTop_toBottomOf="@id/tv1" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/fname_til"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/home_btn"
                 android:layout_marginHorizontal="15dp"
-                android:hint="First Name">
+                android:layout_marginTop="22dp"
+                android:hint="First Name"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/home_btn">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/fname_et"
@@ -129,10 +133,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/fname_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="Last Name">
+                android:layout_marginTop="22dp"
+                android:hint="Last Name"
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/fname_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/lname_et"
@@ -146,10 +151,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/lname_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="Apartment,locality(colony ,street etc)">
+                android:layout_marginTop="22dp"
+                android:hint="Apartment,locality(colony ,street etc)"
+
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/lname_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/apartment_et"
@@ -162,10 +169,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/apartment_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="City">
+                android:layout_marginTop="22dp"
+                android:hint="City"
+
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/apartment_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/city_et"
@@ -178,10 +187,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/city_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="State">
+                android:layout_marginTop="22dp"
+                android:hint="State"
+
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/city_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/state_et"
@@ -194,10 +205,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/state_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="Country">
+                android:layout_marginTop="22dp"
+                android:hint="Country"
+
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/state_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/country_et"
@@ -210,10 +223,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/country_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="Zip Code">
+                android:layout_marginTop="22dp"
+                android:hint="Zip Code"
+
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/country_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/zip_et"
@@ -226,10 +241,12 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                app:layout_constraintTop_toBottomOf="@id/zip_til"
                 android:layout_marginHorizontal="15dp"
-                android:hint="Contact no.">
+                android:layout_marginTop="22dp"
+                android:hint="Contact no."
+
+                app:hintTextColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/zip_til">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_et"
@@ -238,42 +255,41 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <RadioButton
-                android:id="@+id/radioBtn"
+            <CheckBox
+                android:id="@+id/defaultBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/phone_til"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
-                />
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_til" />
 
             <TextView
+                android:id="@+id/defaultText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Make this as the default address"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/phone_til"
-                app:layout_constraintStart_toEndOf="@+id/radioBtn"
-                app:layout_constraintTop_toTopOf="@id/radioBtn"
-                app:layout_constraintBottom_toBottomOf="@id/radioBtn"
                 android:layout_marginStart="5dp"
-                />
+                android:text="Make this as the default address"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/defaultBtn"
+                app:layout_constraintStart_toEndOf="@+id/defaultBtn"
+                app:layout_constraintTop_toBottomOf="@id/phone_til"
+                app:layout_constraintTop_toTopOf="@id/defaultBtn" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:text="Add"
-                android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/radioBtn"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/black_bg_btn_round_corner"
                 android:layout_marginHorizontal="24dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
-                />
+                android:background="@drawable/black_bg_btn_round_corner"
+                android:text="Add"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/defaultBtn" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
