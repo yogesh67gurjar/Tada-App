@@ -3,6 +3,7 @@ package com.example.tadaapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
@@ -27,6 +28,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     ActivityDashboardBinding binding;
 
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +60,6 @@ public class DashboardActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.cons_layout, new OrderFragment()).commit();
                     break;
             }
-
             return true;
         });
     }
