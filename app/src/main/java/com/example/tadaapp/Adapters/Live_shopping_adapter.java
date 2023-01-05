@@ -1,13 +1,16 @@
 package com.example.tadaapp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tadaapp.LiveShoppingActivity;
 import com.example.tadaapp.R;
 
 public class Live_shopping_adapter extends RecyclerView.Adapter<Live_shopping_adapter.ViewHolder>{
@@ -29,6 +32,11 @@ public class Live_shopping_adapter extends RecyclerView.Adapter<Live_shopping_ad
     @Override
     public void onBindViewHolder(@NonNull Live_shopping_adapter.ViewHolder holder, int position) {
 
+        holder.img.setOnClickListener(v -> {
+            Intent intent = new Intent(context, LiveShoppingActivity.class);
+            context.startActivity(intent);
+        });
+
     }
 
     @Override
@@ -37,8 +45,10 @@ public class Live_shopping_adapter extends RecyclerView.Adapter<Live_shopping_ad
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView img;
         public ViewHolder(@NonNull View itemView) {
             super (itemView);
+            img= itemView.findViewById(R.id.img);
         }
     }
 }
