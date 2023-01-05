@@ -19,8 +19,6 @@ import com.example.tadaapp.Modal.UserLogin;
 import com.example.tadaapp.Retrofits.RetrofitServices;
 import com.example.tadaapp.databinding.ActivityLogInBinding;
 
-import java.util.Objects;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -67,7 +65,7 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityLogInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        getSupportActionBar().hide();
 
         forgotPassword_TV = findViewById (R.id.forgotPassword_TV);
         email_ET = findViewById (R.id.email_ET);

@@ -24,16 +24,12 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     ActivityForgotPasswordBinding binding;
     EditText email_ET;
 
-    ApiService apiService;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityForgotPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         Objects.requireNonNull (getSupportActionBar ()).hide();
-
-        apiService= RetrofitServices.getRetrofit().create(ApiService.class);
 
         email_ET = findViewById (R.id.email_ET);
 
@@ -50,13 +46,13 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     }
 
     private void userForgotFunc(String email) {
+        ApiService apiService= RetrofitServices.getRetrofit().create(ApiService.class);
         Call<UserForgotPassword> call=apiService.forgotUser(email);
         call.enqueue(new Callback<UserForgotPassword>() {
             @Override
             public void onResponse(Call<UserForgotPassword> call, Response<UserForgotPassword> response) {
                 assert response.body () != null;
-                if(response.body().getStatus_code()==200)
-                {
+                if(response.isSuccessful ()) {
                     Toast.makeText (getApplicationContext(), "Password Send On Email", Toast.LENGTH_SHORT).show ();
                     Intent i = new Intent (getApplicationContext (), LogInActivity.class);
                     startActivity (i);

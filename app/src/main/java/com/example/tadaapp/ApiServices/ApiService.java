@@ -12,7 +12,9 @@ import retrofit2.http.POST;
 public interface ApiService {
     @FormUrlEncoded
     @POST("user-login")
-    Call<UserLogin> loginUser(@Field("email") String email, @Field("password") String password);
+    Call<UserLogin> loginUser(
+            @Field("email") String email,
+            @Field("password") String password);
 
     @FormUrlEncoded
     @POST("user-registration")
@@ -24,5 +26,6 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("change-password")
-    Call<UserForgotPassword> forgotUser(@Field("email")String email);
+    Call<UserForgotPassword> forgotUser(
+            @Field("email")String email);
 }

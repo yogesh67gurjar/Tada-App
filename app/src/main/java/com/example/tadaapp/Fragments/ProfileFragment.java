@@ -14,7 +14,9 @@ import android.widget.TextView;
 import com.example.tadaapp.EditProfileActivity;
 import com.example.tadaapp.FollowersActivity;
 import com.example.tadaapp.LogInActivity;
+import com.example.tadaapp.MyAddressActivity;
 import com.example.tadaapp.MyOrdersActivity;
+import com.example.tadaapp.PaymentMethodsActivity;
 import com.example.tadaapp.PrivacyPolicyActivity;
 import com.example.tadaapp.R;
 import com.example.tadaapp.SettingsActivity;
@@ -43,6 +45,15 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), EditProfileActivity.class));
+            }
+        });
+
+        TextView my_address_btn = (TextView) view.findViewById (R.id.my_address_btn);
+        my_address_btn.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity (), MyAddressActivity.class);
+                startActivity (i);
             }
         });
 
@@ -91,11 +102,20 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        TextView  following_btn = (TextView) view.findViewById (R.id. following_btn);
+        TextView  following_btn = (TextView) view.findViewById (R.id.following_btn);
         following_btn.setOnClickListener (new View.OnClickListener () {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity (), FollowersActivity.class);
+                startActivity (i);
+            }
+        });
+
+        TextView  payment_method_btn = (TextView) view.findViewById (R.id.payment_method_btn);
+        payment_method_btn.setOnClickListener (new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity (), PaymentMethodsActivity.class);
                 startActivity (i);
             }
         });
