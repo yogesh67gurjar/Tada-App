@@ -28,6 +28,7 @@ public class DashboardActivity extends AppCompatActivity {
 
     ActivityDashboardBinding binding;
 
+
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
