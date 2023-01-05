@@ -73,4 +73,7 @@ dependencies {
 
     // imagebadgeview
     implementation 'io.github.nikartm:image-support:2.0.0'
+    //Agora
+    implementation 'io.agora.rtc:full-sdk:4.0.1'
+
 }
