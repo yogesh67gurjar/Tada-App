@@ -14,11 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TadaApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".AddNewAddressActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".SeeAllActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -26,7 +31,6 @@
         <activity
             android:name=".ShoppingVideosActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -41,7 +45,6 @@
         <activity
             android:name=".EditProfileActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -56,7 +59,6 @@
         <activity
             android:name=".LiveShoppingActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -71,6 +73,7 @@
         <activity
             android:name=".MyAddressActivity"
             android:exported="true">
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -107,7 +110,6 @@
         <activity
             android:name=".PaymentMethodsActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -115,7 +117,6 @@
         <activity
             android:name=".PaymentActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -123,7 +124,6 @@
         <activity
             android:name=".AddNewCardActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -159,7 +159,6 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -174,7 +173,6 @@
         <activity
             android:name=".LogInActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -198,4 +196,5 @@
                 android:value="" />
         </activity>
     </application>
+
 </manifest>

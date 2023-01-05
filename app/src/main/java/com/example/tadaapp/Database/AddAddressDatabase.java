@@ -13,7 +13,7 @@ import com.example.tadaapp.Dao.AddAddressDao;
 import com.example.tadaapp.Dao.CreditCardsDao;
 import com.example.tadaapp.Modal.AddAddress;
 
-@Database(entities = {AddAddress.class},version=1,exportSchema = false)
+@Database(entities = {AddAddress.class},version=2,exportSchema = false)
 public abstract class AddAddressDatabase extends RoomDatabase {
 
     private static AddAddressDatabase instance;

@@ -9,8 +9,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.tadaapp.ApiServices.ApiService;
-import com.example.tadaapp.Fragments.AddNewAddressFragment;
-import com.example.tadaapp.Fragments.SingleProductPageFragment;
 import com.example.tadaapp.Modal.UserForgotPassword;
 import com.example.tadaapp.Retrofits.RetrofitServices;
 import com.example.tadaapp.databinding.ActivityForgotPasswordBinding;
